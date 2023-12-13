@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>alterar-viagem</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+
+<body>
+    <header th:insert="navbar.html"></header>
+
+    <div class="container mt-3">
+
+        <div class="row justify-content-center">
+
+            <form th:action="@{/cadastrar-viagem}" th:object="${viagem}" method="post">
+                <div class="col-md-6">
+                    <h2>Cadastrar Viagem</h2>
+                    
+                    <div class="form-group">
+                        <input type="hidden" th:field="${viagem.id}">
+                        <label for="txtTitulo">Viajante(s)</label>
+                        <input type="text" class="form-control" th:field="${viagem.viajantes}">
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="txtGenero">Destino</label>
+                            <input type="text" class="form-control" th:field="${viagem.destino}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtAno">Período</label>
+                            <input type="text" class="form-control" th:field="${viagem.periodo}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtAno">Estação</label>
+                            <input type="text" class="form-control" th:field="${viagem.estacao}">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="txtGenero">Fotos</label>
+                            <input type="text" class="form-control" th:field="${viagem.fotos}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtAno">Vídeos</label>
+                            <input type="text" class="form-control" th:field="${viagem.videos}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtAno">Avaliação</label>
+                            <input type="text" class="form-control" th:field="${viagem.avaliacao}">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label for="txtSinopse" class="form-label">Resenha</label>
+                        <textarea class="form-control" rows="5" th:field="${viagem.resenha}"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
